@@ -1,0 +1,61 @@
+category:
+  cs.AI: Artificial Intelligence 🧠
+  cs.CL: Computation and Language 💬
+  cs.CV: Computer Vision and Pattern Recognition 📸
+  cs.LG: Machine Learning 📊
+  cs.MA: Multiagent Systems 🌐
+  cs.RO: Robotics 🤖
+
+topic:
+  LLM:
+    keywords:
+      - LLM
+      - Large Language Model
+      - GPT
+    filters:
+  MLLM:
+    keywords:
+      - VLM
+      - MLM
+      - MLLM
+      - Multi-Modal Language Model
+      - Multimodal Language Model
+      - Vision Language Model
+    filters:
+  Reasoning:
+    keywords:
+      - Reasoning
+      - System 2
+      - Slow Thinking
+      - o1
+      - r1
+    filters:
+  Embodied_AI:
+    keywords:
+      - VLA
+      - Vision-Language-Action
+    filters:
+  Diffusion:
+    keywords:
+      - Diffusion
+      - DDPM
+      - DDIM
+    filters:
+  3D_Reconstruction:
+    keywords:
+      - Reconstruction
+      - Nerf
+      - Gaussian
+    filters:
+      - 2D
+  3D_Generation:
+    keywords:
+      - Video Generation
+      - Scene Generation
+      - Content Generation
+    filters:
+      - 2D
+  Benchmark:
+    keywords:
+      - Benchmark
+    filters:
