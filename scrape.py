@@ -199,11 +199,11 @@ def update_hot_topic(client: arxiv.Client, categories, topics, newest_day):
             ]
         )
 
+        meta["count"] = arxiv_len
+
         if arxiv_len == 0:
             print("No papers found for", topic)
             continue
-
-        meta["count"] = arxiv_len
 
         os.makedirs("hot_topic", exist_ok=True)
         with open(f"hot_topic/{topic}.md", "w", encoding="utf-8") as f:
