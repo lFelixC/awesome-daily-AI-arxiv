@@ -48,6 +48,8 @@ def update_category(categories):
                     r"\(([^()]*)\)",
                     "".join(text for text in category_div.stripped_strings),
                 )
+                if any(cat not in categories for cat in all_categories):
+                    continue
                 arxiv_list[cat].append((title, authors, link, abstract, all_categories))
 
         arxiv_len = len(arxiv_list[cat])
@@ -145,11 +147,17 @@ def update_category(categories):
 
 def update_hot_topic(arxiv_list, topics):
     def filter_strings(raw_list, keywords, filter_words):
+        def check_condition(s, condition):
+            if isinstance(condition, list):
+                return all(sub in s for sub in condition)
+            else:
+                return condition in s
+
         return [
             item
             for item, content in raw_list
-            if any(keyword in content for keyword in keywords)
-            and not any(filter_word in content for filter_word in filter_words)
+            if any(check_condition(content, cond) for cond in keywords)
+            and not any(check_condition(content, f_cond) for f_cond in filter_words)
         ]
 
     arxiv_list = [(item, item[0] + " " + item[3]) for sublist in arxiv_list.values() for item in sublist]
@@ -180,8 +188,13 @@ def update_hot_topic(arxiv_list, topics):
             )
             f.write("---\n\n")
             f.write("## 📌 Filter by Category\n")
-            f.write(f"**Keywords**: `{'` `'.join(meta['keywords'])}`  \n")
-            f.write(f"**Filter**: `{'` `'.join(meta['filters']) if meta['filters'] else 'None'}`\n\n")
+            keywords = [",".join(keyword) if type(keyword) is list else keyword for keyword in meta["keywords"]]
+            filter_words = [
+                ",".join(filter_word) if type(filter_word) is list else filter_word
+                for filter_word in (meta["filters"] or [])
+            ]
+            f.write(f"**Keywords**: `{'` `'.join(keywords)}`  \n")
+            f.write(f"**Filter**: `{'` `'.join(filter_words) if filter_words else 'None'}`\n\n")
             f.write("---\n\n")
             f.write("## 📚 Paper List\n\n")
             f.write(topic_list)

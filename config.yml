@@ -24,7 +24,8 @@ topic:
     filters:
   Reasoning:
     keywords:
-      - Reasoning
+      - [LLM, Reasoning]
+      - [VLM, Reasoning]
       - System 2
       - Slow Thinking
       - o1
@@ -57,5 +58,5 @@ topic:
       - 2D
   Benchmark:
     keywords:
-      - Benchmark
+      - Bench
     filters:

@@ -22,6 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install arxiv
           pip install pyyaml
+          pip install beautifulsoup4
 
       - name: Fetch arXiv
         run: python scrape.py
