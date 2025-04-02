@@ -1,16 +1,23 @@
 import os
+import re
 import time
+from collections import defaultdict
+from datetime import UTC, datetime, timedelta
 
-import arxiv
+import requests
 import yaml
+from bs4 import BeautifulSoup
+
+DATE = (datetime.now(UTC) - timedelta(days=1)).strftime("%Y-%m-%d")
 
 
-def update_category(client: arxiv.Client, categories):
+def update_category(categories):
+    arxiv_list = defaultdict(list)
     for cat, meta in categories.items():
         while True:
             try:
-                search = arxiv.Search(query=f"cat:{cat}", max_results=800, sort_by=arxiv.SortCriterion.LastUpdatedDate)
-                if not client.results(search):
+                response = requests.get(f"https://arxiv.org/list/{cat}/new")
+                if response.status_code != 200:
                     time.sleep(3)
                     continue
             except:
@@ -18,33 +25,36 @@ def update_category(client: arxiv.Client, categories):
                 continue
             break
 
-        arxiv_list = []
+        soup = BeautifulSoup(response.text, "html.parser")
+        articles = soup.find_all(id="articles")
+        for article in articles:
+            for dt, dd in list(zip(article.find_all("dt"), article.find_all("dd")))[::-1]:
+                arxiv_id = dt.find("a", href=lambda x: x and x.startswith("/abs/"))["href"].split("/")[-1]
+                link = f"https://arxiv.org/abs/{arxiv_id}"
 
-        newest_day = None
-        for result in client.results(search):
-            if result.primary_category != cat:
-                continue
-            link = result.entry_id
-            title = result.title
-            abstract = result.summary
-            authors = result.authors
-            authors = authors[:6] + ["et al."] if len(authors) > 6 else authors
-            authors = ", ".join([author.name if type(author) is not str else author for author in authors])
-            update_time = result.updated
-            publish_time = result.published
+                title = dd.find("div", class_="list-title").get_text(strip=True).replace("Title:", "").strip()
+                authors = [a.get_text(strip=True) for a in dd.find("div", class_="list-authors").find_all("a")]
+                authors = authors[:6] + ["et al."] if len(authors) > 6 else authors
+                authors = ", ".join([author.name if type(author) is not str else author for author in authors])
+                abstract = dd.find("p", class_="mathjax").get_text(strip=True)
 
-            if newest_day is None:
-                newest_day = update_time.date()
-            if update_time.date() != newest_day:
-                break
+                category_div = dd.find("div", class_="list-subjects")
+                primary_category = re.findall(
+                    r"\(([^()]*)\)", category_div.find("span", class_="primary-subject").get_text(strip=True)
+                )[0]
+                if primary_category != cat:
+                    continue
+                all_categories = re.findall(
+                    r"\(([^()]*)\)",
+                    "".join(text for text in category_div.stripped_strings),
+                )
+                arxiv_list[cat].append((title, authors, link, abstract, all_categories))
 
-            arxiv_list.append((title, authors, link, abstract, publish_time))
-        arxiv_len = len(arxiv_list)
-        arxiv_list = sorted(arxiv_list, key=lambda x: x[-1], reverse=True)
-        arxiv_list = "\n".join(
+        arxiv_len = len(arxiv_list[cat])
+        arxiv_list_str = "\n".join(
             [
                 f"- **[{title}]({link})**  `arXiv:{link.split('/')[-1].split('v')[0]}`  \n  _{authors}_\n  <details><summary>Abstract</summary>\n  {abstract.strip().replace('\n', '')}\n  </details>\n"
-                for title, authors, link, abstract, _ in arxiv_list
+                for title, authors, link, abstract, _ in arxiv_list[cat]
             ]
         )
 
@@ -77,7 +87,7 @@ def update_category(client: arxiv.Client, categories):
             lines[: start_index + 1]
             + ["\n"]
             + ["<details open><summary>Click to Collapse</summary>\n\n"]
-            + [arxiv_list.strip() + "\n\n"]
+            + [arxiv_list_str.strip() + "\n\n"]
             + ["[↑ Back to Top](#-full-archive)\n\n"]
             + ["</details>\n\n"]
             + lines[end_index:]
@@ -130,72 +140,28 @@ def update_category(client: arxiv.Client, categories):
         f.writelines(new_lines)
 
     print("Updated README.md for Full Archive")
-    return newest_day
+    return arxiv_list
 
 
-def update_hot_topic(client: arxiv.Client, categories, topics, newest_day):
-    def parse_query(meta: dict):
-        assert "keywords" in meta
-        assert "filters" in meta
+def update_hot_topic(arxiv_list, topics):
+    def filter_strings(raw_list, keywords, filter_words):
+        return [
+            item
+            for item, content in raw_list
+            if any(keyword in content for keyword in keywords)
+            and not any(filter_word in content for filter_word in filter_words)
+        ]
 
-        query = "(" + " OR ".join([f"cat:{cat}" for cat in categories]) + ") AND ("
-
-        for keyword in meta["keywords"]:
-            query += f'"{keyword}"OR'
-        query = query[:-2] + ") "
-
-        filter_query = ""
-        if meta["filters"] is not None:
-            for filter in meta["filters"]:
-                filter_query += f'"{filter}"OR'
-            filter_query = filter_query[:-2]
-
-        query += f"ANDNOT ({filter_query})" if filter_query else ""
-        return query
-
+    arxiv_list = [(item, item[0] + " " + item[3]) for sublist in arxiv_list.values() for item in sublist]
     for topic, meta in topics.items():
-        query = parse_query(meta)
-        while True:
-            try:
-                search = arxiv.Search(
-                    query=query,
-                    max_results=800,
-                    sort_by=arxiv.SortCriterion.LastUpdatedDate,
-                )
-                if not client.results(search):
-                    time.sleep(3)
-                    continue
-            except:
-                time.sleep(10)
-                continue
-            break
+        topic_list = filter_strings(arxiv_list, meta["keywords"], meta["filters"] or [])
 
-        arxiv_list = []
-
-        for result in client.results(search):
-            link = result.entry_id
-            title = result.title
-            abstract = result.summary
-            category = list(set([result.primary_category] + result.categories))
-            authors = result.authors
-            authors = authors[:6] + ["et al."] if len(authors) > 6 else authors
-            authors = ", ".join([author.name if type(author) is not str else author for author in authors])
-            update_time = result.updated
-            publish_time = result.published
-
-            if not all([cat in categories for cat in category]):
-                continue
-
-            if update_time.date() != newest_day:
-                break
-
-            arxiv_list.append((title, authors, link, abstract, category, publish_time))
-        arxiv_len = len(arxiv_list)
-        arxiv_list = sorted(arxiv_list, key=lambda x: x[-1], reverse=True)
-        arxiv_list = "\n".join(
+        arxiv_len = len(topic_list)
+        topic_list = sorted(topic_list, key=lambda x: x[-1], reverse=True)
+        topic_list = "\n".join(
             [
                 f"- **[{title}]({link})**  `arXiv:{link.split('/')[-1].split('v')[0]}`  `{'` `'.join(categories)}`  \n  _{authors}_\n  <details open><summary>Abstract</summary>\n  {abstract.strip().replace('\n', '')}\n  </details>\n"
-                for title, authors, link, abstract, categories, _ in arxiv_list
+                for title, authors, link, abstract, categories in topic_list
             ]
         )
 
@@ -207,7 +173,7 @@ def update_hot_topic(client: arxiv.Client, categories, topics, newest_day):
 
         os.makedirs("hot_topic", exist_ok=True)
         with open(f"hot_topic/{topic}.md", "w", encoding="utf-8") as f:
-            f.write(f"# 🔍 {topic} Papers · {newest_day}\n\n")
+            f.write(f"# 🔍 {topic} Papers · {DATE}\n\n")
             f.write(f"[![Total Papers](https://img.shields.io/badge/Papers-{arxiv_len}-2688EB)]()\n")
             f.write(
                 "[![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()\n\n"
@@ -218,7 +184,7 @@ def update_hot_topic(client: arxiv.Client, categories, topics, newest_day):
             f.write(f"**Filter**: `{'` `'.join(meta['filters']) if meta['filters'] else 'None'}`\n\n")
             f.write("---\n\n")
             f.write("## 📚 Paper List\n\n")
-            f.write(arxiv_list)
+            f.write(topic_list)
 
         print("Updated hot_topic for", topic)
 
@@ -257,6 +223,5 @@ if __name__ == "__main__":
     config = yaml.load(open("config.yml", "r"), Loader=yaml.FullLoader)
     categories = {key: {"name": value} for key, value in config["category"].items()}
     topics = config["topic"]
-    client = arxiv.Client()
-    newest_day = update_category(client, categories)
-    update_hot_topic(client, categories, topics, newest_day)
+    arxiv_list = update_category(categories)
+    update_hot_topic(arxiv_list, topics)
