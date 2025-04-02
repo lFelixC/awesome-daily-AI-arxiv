@@ -22,14 +22,18 @@ topic:
       - Multimodal Language Model
       - Vision Language Model
     filters:
-  Reasoning:
+  Test-Time-Scaling:
     keywords:
       - [LLM, Reasoning]
       - [VLM, Reasoning]
-      - System 2
+      - [System 2, Thinking]
       - Slow Thinking
       - o1
       - r1
+      - test-time-scaling
+      - test-time-computing
+      - TTS
+      - TTC
     filters:
   Embodied_AI:
     keywords:
