@@ -40,7 +40,8 @@ def update_category(categories):
 
                 category_div = dd.find("div", class_="list-subjects")
                 primary_category = re.findall(
-                    r"\(([^()]*)\)", category_div.find("span", class_="primary-subject").get_text(strip=True)
+                    r"\(([^()]*)\)",
+                    category_div.find("span", class_="primary-subject").get_text(strip=True),
                 )[0]
                 if primary_category != cat:
                     continue
@@ -149,9 +150,9 @@ def update_hot_topic(arxiv_list, topics):
     def filter_strings(raw_list, keywords, filter_words):
         def check_condition(s, condition):
             if isinstance(condition, list):
-                return all(sub in s for sub in condition)
+                return all(sub.lower() in s.lower() for sub in condition)
             else:
-                return condition in s
+                return condition.lower() in s.lower()
 
         return [
             item
