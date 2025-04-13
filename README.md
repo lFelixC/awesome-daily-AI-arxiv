@@ -14,8 +14,8 @@
 - 🔥 Hot Topic
   - [LLM](hot_topic/LLM.md)
   - [Benchmark](hot_topic/Benchmark.md)
-  - [MLLM](hot_topic/MLLM.md)
   - [Test-Time-Scaling](hot_topic/Test-Time-Scaling.md)
+  - [MLLM](hot_topic/MLLM.md)
   - [Diffusion](hot_topic/Diffusion.md)
   - [3D_Reconstruction](hot_topic/3D_Reconstruction.md)
   - [3D_Generation](hot_topic/3D_Generation.md)
