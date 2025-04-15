@@ -2,7 +2,7 @@ name: Fetch ArXiv
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 1 * * *'
+    - cron: '0 2 * * *'
 permissions: write-all
 
 jobs:
