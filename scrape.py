@@ -61,11 +61,11 @@ def update_category(categories):
             ]
         )
 
+        meta["count"] = arxiv_len
+
         if arxiv_len == 0:
             print("No papers found for", meta["name"])
             continue
-
-        meta["count"] = arxiv_len
 
         with open("README.md", "r", encoding="utf-8") as f:
             lines = f.readlines()
