@@ -1,6 +1,6 @@
-# 🔍 Embodied_AI Papers · 2025-05-07
+# 🔍 Embodied_AI Papers · 2025-05-08
 
-[![Total Papers](https://img.shields.io/badge/Papers-2-2688EB)]()
+[![Total Papers](https://img.shields.io/badge/Papers-1-2688EB)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()
 
 ---
@@ -13,14 +13,8 @@
 
 ## 📚 Paper List
 
-- **[OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation](https://arxiv.org/abs/2505.03912)**  `arXiv:2505.03912`  `cs.RO` `cs.CV`  
-  _Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, et al._
+- **[Vision-Language-Action Models: Concepts, Progress, Applications and Challenges](https://arxiv.org/abs/2505.04769)**  `arXiv:2505.04769`  `cs.CV`  
+  _Ranjan Sapkota, Yang Cao, Konstantinos I. Roumeliotis, Manoj Karkee_
   <details open><summary>Abstract</summary>
-  Dual-system VLA (Vision-Language-Action) architectures have become a hot topic in embodied intelligence research, but there is a lack of sufficient open-source work for further performance analysis and optimization. To address this problem, this paper will summarize and compare the structural designs of existing dual-system architectures, and conduct systematic empirical evaluations on the core design elements of existing dual-system architectures. Ultimately, it will provide a low-cost open-source model for further exploration. Of course, this project will continue to update with more experimental conclusions and open-source models with improved performance for everyone to choose from. Project page:this https URL.
-  </details>
-
-- **[Hamiltonian Normalizing Flows as kinetic PDE solvers: application to the 1D Vlasov-Poisson Equations](https://arxiv.org/abs/2505.04471)**  `arXiv:2505.04471`  `cs.LG`  
-  _Vincent Souveton, Sébastien Terrana_
-  <details open><summary>Abstract</summary>
-  Many conservative physical systems can be described using the Hamiltonian formalism. A notable example is the Vlasov-Poisson equations, a set of partial differential equations that govern the time evolution of a phase-space density function representing collisionless particles under a self-consistent potential. These equations play a central role in both plasma physics and cosmology. Due to the complexity of the potential involved, analytical solutions are rarely available, necessitating the use of numerical methods such as Particle-In-Cell. In this work, we introduce a novel approach based on Hamiltonian-informed Normalizing Flows, specifically a variant of Fixed-Kinetic Neural Hamiltonian Flows. Our method transforms an initial Gaussian distribution in phase space into the final distribution using a sequence of invertible, volume-preserving transformations derived from Hamiltonian dynamics. The model is trained on a dataset comprising initial and final states at a fixed time T, generated via numerical simulations. After training, the model enables fast sampling of the final distribution from any given initial state. Moreover, by automatically learning an interpretable physical potential, it can generalize to intermediate states not seen during training, offering insights into the system's evolution across time.
+  Vision-Language-Action (VLA) models mark a transformative advancement in artificial intelligence, aiming to unify perception, natural language understanding, and embodied action within a single computational framework. This foundational review presents a comprehensive synthesis of recent advancements in Vision-Language-Action models, systematically organized across five thematic pillars that structure the landscape of this rapidly evolving field. We begin by establishing the conceptual foundations of VLA systems, tracing their evolution from cross-modal learning architectures to generalist agents that tightly integrate vision-language models (VLMs), action planners, and hierarchical controllers. Our methodology adopts a rigorous literature review framework, covering over 80 VLA models published in the past three years. Key progress areas include architectural innovations, parameter-efficient training strategies, and real-time inference accelerations. We explore diverse application domains such as humanoid robotics, autonomous vehicles, medical and industrial robotics, precision agriculture, and augmented reality navigation. The review further addresses major challenges across real-time control, multimodal action representation, system scalability, generalization to unseen tasks, and ethical deployment risks. Drawing from the state-of-the-art, we propose targeted solutions including agentic AI adaptation, cross-embodiment generalization, and unified neuro-symbolic planning. In our forward-looking discussion, we outline a future roadmap where VLA models, VLMs, and agentic AI converge to power socially aligned, adaptive, and general-purpose embodied agents. This work serves as a foundational reference for advancing intelligent, real-world robotics and artificial general intelligence. >Vision-language-action, Agentic AI, AI Agents, Vision-language Models
   </details>
