@@ -1,6 +1,6 @@
-# 🔍 Test-Time-Scaling Papers · 2025-06-05
+# 🔍 Test-Time-Scaling Papers · 2025-06-06
 
-[![Total Papers](https://img.shields.io/badge/Papers-99-2688EB)]()
+[![Total Papers](https://img.shields.io/badge/Papers-98-2688EB)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()
 
 ---
@@ -487,12 +487,6 @@
   This paper advances motion agents empowered by large language models (LLMs) toward autonomous navigation in dynamic and cluttered environments, significantly surpassing first and recent seminal but limited studies on LLM's spatial reasoning, where movements are restricted in four directions in simple, static environments in the presence of only single agents much less multiple agents. Specifically, we investigate LLMs as spatial reasoners to overcome these limitations by uniformly encoding environments (e.g., real indoor floorplans), agents which can be dynamic obstacles and their paths as discrete tokens akin to language tokens. Our training-free framework supports multi-agent coordination, closed-loop replanning, and dynamic obstacle avoidance without retraining or fine-tuning. We show that LLMs can generalize across agents, tasks, and environments using only text-based interactions, opening new possibilities for semantically grounded, interactive navigation in both simulation and embodied systems.
   </details>
 
-- **[Ontology-based knowledge representation for bone disease diagnosis: a foundation for safe and sustainable medical artificial intelligence systems](https://arxiv.org/abs/2506.04756)**  `arXiv:2506.04756`  `cs.AI` `cs.CV`  
-  _Loan Dao, Ngoc Quoc Ly_
-  <details open><summary>Abstract</summary>
-  Medical artificial intelligence (AI) systems frequently lack systematic domain expertise integration, potentially compromising diagnostic reliability. This study presents an ontology-based framework for bone disease diagnosis, developed in collaboration with Ho Chi Minh City Hospital for Traumatology and Orthopedics. The framework introduces three theoretical contributions: (1) a hierarchical neural network architecture guided by bone disease ontology for segmentation-classification tasks, incorporating Visual Language Models (VLMs) through prompts, (2) an ontology-enhanced Visual Question Answering (VQA) system for clinical reasoning, and (3) a multimodal deep learning model that integrates imaging, clinical, and laboratory data through ontological relationships. The methodology maintains clinical interpretability through systematic knowledge digitization, standardized medical terminology mapping, and modular architecture design. The framework demonstrates potential for extension beyond bone diseases through its standardized structure and reusable components. While theoretical foundations are established, experimental validation remains pending due to current dataset and computational resource limitations. Future work will focus on expanding the clinical dataset and conducting comprehensive system validation.
-  </details>
-
 - **[MM-PRM: Enhancing Multimodal Mathematical Reasoning with Scalable Step-Level Supervision](https://arxiv.org/abs/2505.13427)**  `arXiv:2505.13427`  `cs.AI` `cs.CV`  
   _Lingxiao Du, Fanqing Meng, Zongkai Liu, Zhixiang Zhou, Ping Luo, Qiaosheng Zhang, et al._
   <details open><summary>Abstract</summary>
@@ -527,6 +521,12 @@
   _Lin Sun, Weihong Lin, Jinzhu Wu, Yongfu Zhu, Xiaoqi Jian, Guangxiang Zhao, et al._
   <details open><summary>Abstract</summary>
   Reasoning models represented by the Deepseek-R1-Distill series have been widely adopted by the open-source community due to their strong performance in mathematics, science, programming, and other domains. However, our study reveals that their benchmark evaluation results are subject to significant fluctuations caused by various factors. Subtle differences in evaluation conditions can lead to substantial variations in results. Similar phenomena are observed in other open-source inference models fine-tuned based on the Deepseek-R1-Distill series, as well as in the QwQ-32B model, making their claimed performance improvements difficult to reproduce reliably. Therefore, we advocate for the establishment of a more rigorous paradigm for model performance evaluation and present our empirical assessments of the Deepseek-R1-Distill series models.
+  </details>
+
+- **[Plugging Schema Graph into Multi-Table QA: A Human-Guided Framework for Reducing LLM Reliance](https://arxiv.org/abs/2506.04427)**  `arXiv:2506.04427`  `cs.AI` `cs.CL`  
+  _Xixi Wang, Miguel Costa, Jordanka Kovaceva, Shuai Wang, Francisco C. Pereira_
+  <details open><summary>Abstract</summary>
+  Large language models (LLMs) have shown promise in table Question Answering (Table QA). However, extending these capabilities to multi-table QA remains challenging due to unreliable schema linking across complex tables. Existing methods based on semantic similarity work well only on simplified hand-crafted datasets and struggle to handle complex, real-world scenarios with numerous and diverse columns. To address this, we propose a graph-based framework that leverages human-curated relational knowledge to explicitly encode schema links and join paths. Given a natural language query, our method searches this graph to construct interpretable reasoning chains, aided by pruning and sub-path merging strategies to enhance efficiency and coherence. Experiments on both standard benchmarks and a realistic, large-scale dataset demonstrate the effectiveness of our approach. To our knowledge, this is the first multi-table QA system applied to truly complex industrial tabular data.
   </details>
 
 - **[Empowering LLMs with Logical Reasoning: A Comprehensive Survey](https://arxiv.org/abs/2502.15652)**  `arXiv:2502.15652`  `cs.AI` `cs.CL`  
@@ -575,12 +575,6 @@
   _Jiayu Liu, Zhenya Huang, Wei Dai, Cheng Cheng, Jinze Wu, Jing Sha, et al._
   <details open><summary>Abstract</summary>
   Although large language models (LLMs) show promise in solving complex mathematical tasks, existing evaluation paradigms rely solely on a coarse measure of overall answer accuracy, which are insufficient for assessing their authentic capabilities. In this paper, we propose \textbf{CogMath}, which comprehensively assesses LLMs' mathematical abilities through the lens of human cognition. Specifically, inspired by psychological theories, CogMath formalizes human reasoning process into 3 stages: \emph{problem comprehension}, \emph{problem solving}, and \emph{solution summarization}. Within these stages, we investigate perspectives such as numerical calculation, knowledge, and counterfactuals, and design a total of 9 fine-grained evaluation dimensions. In each dimension, we develop an ``\emph{Inquiry}-\emph{Judge}-\emph{Reference}'' multi-agent system to generate inquiries that assess LLMs' mastery from this dimension. An LLM is considered to truly master a problem only when excelling in all inquiries from the 9 dimensions. By applying CogMath on three benchmarks, we reveal that the mathematical capabilities of 7 mainstream LLMs are overestimated by 30\%-40\%. Moreover, we locate their strengths and weaknesses across specific stages/dimensions, offering in-depth insights to further enhance their reasoning abilities.
-  </details>
-
-- **[Plugging Schema Graph into Multi-Table QA: A Human-Guided Framework for Reducing LLM Reliance](https://arxiv.org/abs/2506.04427)**  `arXiv:2506.04427`  `cs.AI`  
-  _Xixi Wang, Miguel Costa, Jordanka Kovaceva, Shuai Wang, Francisco C. Pereira_
-  <details open><summary>Abstract</summary>
-  Large language models (LLMs) have shown promise in table Question Answering (Table QA). However, extending these capabilities to multi-table QA remains challenging due to unreliable schema linking across complex tables. Existing methods based on semantic similarity work well only on simplified hand-crafted datasets and struggle to handle complex, real-world scenarios with numerous and diverse columns. To address this, we propose a graph-based framework that leverages human-curated relational knowledge to explicitly encode schema links and join paths. Given a natural language query, our method searches this graph to construct interpretable reasoning chains, aided by pruning and sub-path merging strategies to enhance efficiency and coherence. Experiments on both standard benchmarks and a realistic, large-scale dataset demonstrate the effectiveness of our approach. To our knowledge, this is the first multi-table QA system applied to truly complex industrial tabular data.
   </details>
 
 - **[MIRROR: Multi-agent Intra- and Inter-Reflection for Optimized Reasoning in Tool Learning](https://arxiv.org/abs/2505.20670)**  `arXiv:2505.20670`  `cs.AI`  

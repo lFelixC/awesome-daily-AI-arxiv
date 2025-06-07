@@ -1,6 +1,6 @@
-# 🔍 MLLM Papers · 2025-06-05
+# 🔍 MLLM Papers · 2025-06-06
 
-[![Total Papers](https://img.shields.io/badge/Papers-39-2688EB)]()
+[![Total Papers](https://img.shields.io/badge/Papers-38-2688EB)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()
 
 ---
@@ -215,12 +215,6 @@
   _Jiayi He, Hehai Lin, Qingyun Wang, Yi Fung, Heng Ji_
   <details open><summary>Abstract</summary>
   While Vision-Language Models (VLMs) have shown remarkable abilities in visual and language reasoning tasks, they invariably generate flawed responses. Self-correction that instructs models to refine their outputs presents a promising solution to this issue. Previous studies have mainly concentrated on Large Language Models (LLMs), while the self-correction abilities of VLMs, particularly concerning both visual and linguistic information, remain largely unexamined. This study investigates the self-correction capabilities of VLMs during both inference and fine-tuning stages. We introduce a Self-Correction Learning (SCL) approach that enables VLMs to learn from their self-generated self-correction data through Direct Preference Optimization (DPO) without relying on external feedback, facilitating self-improvement. Specifically, we collect preferred and disfavored samples based on the correctness of initial and refined responses, which are obtained by two-turn self-correction with VLMs during the inference stage. Experimental results demonstrate that although VLMs struggle to self-correct effectively during iterative inference without additional fine-tuning and external feedback, they can enhance their performance and avoid previous mistakes through preference fine-tuning when their self-generated self-correction data are categorized into preferred and disfavored samples. This study emphasizes that self-correction is not merely a refinement process; rather, it should enhance the reasoning abilities of models through additional training, enabling them to generate high-quality responses directly without further refinement.
-  </details>
-
-- **[Ontology-based knowledge representation for bone disease diagnosis: a foundation for safe and sustainable medical artificial intelligence systems](https://arxiv.org/abs/2506.04756)**  `arXiv:2506.04756`  `cs.AI` `cs.CV`  
-  _Loan Dao, Ngoc Quoc Ly_
-  <details open><summary>Abstract</summary>
-  Medical artificial intelligence (AI) systems frequently lack systematic domain expertise integration, potentially compromising diagnostic reliability. This study presents an ontology-based framework for bone disease diagnosis, developed in collaboration with Ho Chi Minh City Hospital for Traumatology and Orthopedics. The framework introduces three theoretical contributions: (1) a hierarchical neural network architecture guided by bone disease ontology for segmentation-classification tasks, incorporating Visual Language Models (VLMs) through prompts, (2) an ontology-enhanced Visual Question Answering (VQA) system for clinical reasoning, and (3) a multimodal deep learning model that integrates imaging, clinical, and laboratory data through ontological relationships. The methodology maintains clinical interpretability through systematic knowledge digitization, standardized medical terminology mapping, and modular architecture design. The framework demonstrates potential for extension beyond bone diseases through its standardized structure and reusable components. While theoretical foundations are established, experimental validation remains pending due to current dataset and computational resource limitations. Future work will focus on expanding the clinical dataset and conducting comprehensive system validation.
   </details>
 
 - **[MM-PRM: Enhancing Multimodal Mathematical Reasoning with Scalable Step-Level Supervision](https://arxiv.org/abs/2505.13427)**  `arXiv:2505.13427`  `cs.AI` `cs.CV`  
