@@ -1,6 +1,6 @@
-# 🔍 3D_Reconstruction Papers · 2025-07-10
+# 🔍 3D_Reconstruction Papers · 2025-07-11
 
-[![Total Papers](https://img.shields.io/badge/Papers-25-2688EB)]()
+[![Total Papers](https://img.shields.io/badge/Papers-24-2688EB)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()
 
 ---
@@ -35,12 +35,6 @@
   _Sol Yarkoni, Roi Livni_
   <details open><summary>Abstract</summary>
   The recent advances in generative models such as diffusion models have raised several risks and concerns related to privacy, copyright infringements and data stewardship. To better understand and control the risks, various researchers have created techniques, experiments and attacks that reconstruct images, or part of images, from the training set. While these techniques already establish that data from the training set can be reconstructed, they often rely on high-resources, excess to the training set as well as well-engineered and designed prompts.In this work, we devise a new attack that requires low resources, assumes little to no access to the actual training set, and identifies, seemingly, benign prompts that lead to potentially-risky image reconstruction. This highlights the risk that images might even be reconstructed by an uninformed user and unintentionally. For example, we identified that, with regard to one existing model, the prompt ``blue Unisex T-Shirt'' can generate the face of a real-life human model. Our method builds on an intuition from previous works which leverages domain knowledge and identifies a fundamental vulnerability that stems from the use of scraped data from e-commerce platforms, where templated layouts and images are tied to pattern-like prompts.
-  </details>
-
-- **[Optimization Guarantees for Square-Root Natural-Gradient Variational Inference](https://arxiv.org/abs/2507.07853)**  `arXiv:2507.07853`  `cs.LG` `cs.AI`  
-  _Navish Kumar, Thomas Möllenhoff, Mohammad Emtiyaz Khan, Aurelien Lucchi_
-  <details open><summary>Abstract</summary>
-  Variational inference with natural-gradient descent often shows fast convergence in practice, but its theoretical convergence guarantees have been challenging to establish. This is true even for the simplest cases that involve concave log-likelihoods and use a Gaussian approximation. We show that the challenge can be circumvented for such cases using a square-root parameterization for the Gaussian covariance. This approach establishes novel convergence guarantees for natural-gradient variational-Gaussian inference and its continuous-time gradient flow. Our experiments demonstrate the effectiveness of natural gradient methods and highlight their advantages over algorithms that use Euclidean or Wasserstein geometries.
   </details>
 
 - **[OPC: One-Point-Contraction Unlearning Toward Deep Feature Forgetting](https://arxiv.org/abs/2507.07754)**  `arXiv:2507.07754`  `cs.LG` `cs.AI`  

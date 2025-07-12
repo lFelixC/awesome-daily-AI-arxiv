@@ -1,4 +1,4 @@
-# 🔍 Diffusion Papers · 2025-07-10
+# 🔍 Diffusion Papers · 2025-07-11
 
 [![Total Papers](https://img.shields.io/badge/Papers-26-2688EB)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)]()
@@ -19,6 +19,12 @@
   Out-of-distribution (OOD) detection is critical for ensuring the reliability of deep learning systems, particularly in safety-critical applications. Likelihood-based deep generative models have historically faced criticism for their unsatisfactory performance in OOD detection, often assigning higher likelihood to OOD data than in-distribution samples when applied to image data. In this work, we demonstrate that likelihood is not inherently flawed. Rather, several properties in the images space prohibit likelihood as a valid detection score. Given a sufficiently good likelihood estimator, specifically using the probability flow formulation of a diffusion model, we show that likelihood-based methods can still perform on par with state-of-the-art methods when applied in the representation space of pre-trained encoders. The code of our work can be found at $\href{this https URL}{\texttt{this https URL}}$.
   </details>
 
+- **[Automating Evaluation of Diffusion Model Unlearning with (Vision-) Language Model World Knowledge](https://arxiv.org/abs/2507.07137)**  `arXiv:2507.07137`  `cs.LG` `cs.CL`  
+  _Eric Yeats, Darryl Hannan, Henry Kvinge, Timothy Doster, Scott Mahan_
+  <details open><summary>Abstract</summary>
+  Machine unlearning (MU) is a promising cost-effective method to cleanse undesired information (generated concepts, biases, or patterns) from foundational diffusion models. While MU is orders of magnitude less costly than retraining a diffusion model without the undesired information, it can be challenging and labor-intensive to prove that the information has been fully removed from the model. Moreover, MU can damage diffusion model performance on surrounding concepts that one would like to retain, making it unclear if the diffusion model is still fit for deployment. We introduce autoeval-dmun, an automated tool which leverages (vision-) language models to thoroughly assess unlearning in diffusion models. Given a target concept, autoeval-dmun extracts structured, relevant world knowledge from the language model to identify nearby concepts which are likely damaged by unlearning and to circumvent unlearning with adversarial prompts. We use our automated tool to evaluate popular diffusion model unlearning methods, revealing that language models (1) impose semantic orderings of nearby concepts which correlate well with unlearning damage and (2) effectively circumvent unlearning with synthetic adversarial prompts.
+  </details>
+
 - **[EXPO: Stable Reinforcement Learning with Expressive Policies](https://arxiv.org/abs/2507.07986)**  `arXiv:2507.07986`  `cs.LG` `cs.AI`  
   _Perry Dong, Qiyang Li, Dorsa Sadigh, Chelsea Finn_
   <details open><summary>Abstract</summary>
@@ -35,12 +41,6 @@
   _Huibo Xu, Runlong Yu, Likang Wu, Xianquan Wang, Qi Liu_
   <details open><summary>Abstract</summary>
   Diffusion models, a type of generative model, have shown promise in time series forecasting. But they face limitations like rigid source distributions and limited sampling paths, which hinder their performance. Flow matching offers faster generation, higher-quality outputs, and greater flexibility, while also possessing the ability to utilize valuable information from the prediction errors of prior models, which were previously inaccessible yet critically important. To address these challenges and fully unlock the untapped potential of flow matching, we propose Conditional Guided Flow Matching (CGFM). CGFM extends flow matching by incorporating the outputs of an auxiliary model, enabling a previously unattainable capability in the field: learning from the errors of the auxiliary model. For time series forecasting tasks, it integrates historical data as conditions and guidance, constructs two-sided conditional probability paths, and uses a general affine path to expand the space of probability paths, ultimately leading to improved predictions. Extensive experiments show that CGFM consistently enhances and outperforms state-of-the-art models, highlighting its effectiveness in advancing forecasting methods.
-  </details>
-
-- **[Automating Evaluation of Diffusion Model Unlearning with (Vision-) Language Model World Knowledge](https://arxiv.org/abs/2507.07137)**  `arXiv:2507.07137`  `cs.LG`  
-  _Eric Yeats, Darryl Hannan, Henry Kvinge, Timothy Doster, Scott Mahan_
-  <details open><summary>Abstract</summary>
-  Machine unlearning (MU) is a promising cost-effective method to cleanse undesired information (generated concepts, biases, or patterns) from foundational diffusion models. While MU is orders of magnitude less costly than retraining a diffusion model without the undesired information, it can be challenging and labor-intensive to prove that the information has been fully removed from the model. Moreover, MU can damage diffusion model performance on surrounding concepts that one would like to retain, making it unclear if the diffusion model is still fit for deployment. We introduce autoeval-dmun, an automated tool which leverages (vision-) language models to thoroughly assess unlearning in diffusion models. Given a target concept, autoeval-dmun extracts structured, relevant world knowledge from the language model to identify nearby concepts which are likely damaged by unlearning and to circumvent unlearning with adversarial prompts. We use our automated tool to evaluate popular diffusion model unlearning methods, revealing that language models (1) impose semantic orderings of nearby concepts which correlate well with unlearning damage and (2) effectively circumvent unlearning with synthetic adversarial prompts.
   </details>
 
 - **[Divergence Minimization Preference Optimization for Diffusion Model Alignment](https://arxiv.org/abs/2507.07510)**  `arXiv:2507.07510`  `cs.CV` `cs.LG`  
