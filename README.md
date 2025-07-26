@@ -1,6 +1,6 @@
 # 🚀 Daily AI arXiv Digest
 
-[![Total Papers](https://img.shields.io/badge/paper_today-337+-red)]()
+[![Total Papers](https://img.shields.io/badge/paper_today-335+-red)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)](https://github.com/Tavish9/awesome-daily-AI-arxiv/commits/main/)
 [![arXiv API](https://img.shields.io/badge/powered_by-arXiv_API-009688)](https://arxiv.org/help/api)
 [![License](https://img.shields.io/badge/license-CC_BY--SA_4.0-3989c9)](LICENSE)
@@ -35,7 +35,7 @@
 | [Artificial Intelligence 🧠](#artificial-intelligence-) | 31    |
 | [Computation and Language 💬](#computation-and-language-) | 65    |
 | [Computer Vision and Pattern Recognition 📸](#computer-vision-and-pattern-recognition-) | 139   |
-| [Machine Learning 📊](#machine-learning-) | 70    |
+| [Machine Learning 📊](#machine-learning-) | 68    |
 | [Multiagent Systems 🌐](#multiagent-systems-) | 3     |
 | [Robotics 🤖](#robotics-) | 29    |
 
@@ -1615,12 +1615,6 @@
   Deploying large language models (LLMs) is challenging due to their massive parameters and high computational costs. Ultra low-bit quantization can significantly reduce storage and accelerate inference, but extreme compression (i.e., mean bit-width <= 2) often leads to severe performance degradation. To address this, we propose Squeeze10-LLM, effectively "squeezing" 16-bit LLMs' weights by 10 times. Specifically, Squeeze10-LLM is a staged mixed-precision post-training quantization (PTQ) framework and achieves an average of 1.6 bits per weight by quantizing 80% of the weights to 1 bit and 20% to 4 bits. We introduce Squeeze10LLM with two key innovations: Post-Binarization Activation Robustness (PBAR) and Full Information Activation Supervision (FIAS). PBAR is a refined weight significance metric that accounts for the impact of quantization on activations, improving accuracy in low-bit settings. FIAS is a strategy that preserves full activation information during quantization to mitigate cumulative error propagation across layers. Experiments on LLaMA and LLaMA2 show that Squeeze10-LLM achieves state-of-the-art performance for sub-2bit weight-only quantization, improving average accuracy from 43% to 56% on six zero-shot classification tasks--a significant boost over existing PTQ methods. Our code will be released upon publication.
   </details>
 
-- **[C-AAE: Compressively Anonymizing Autoencoders for Privacy-Preserving Activity Recognition in Healthcare Sensor Streams](https://arxiv.org/abs/2507.18072)**  `arXiv:2507.18072`  
-  _Ryusei Fujimoto, Yugo Nakamura, Yutaka Arakawa_
-  <details><summary>Abstract</summary>
-  Wearable accelerometers and gyroscopes encode fine-grained behavioural signatures that can be exploited to re-identify users, making privacy protection essential for healthcare applications. We introduce C-AAE, a compressive anonymizing autoencoder that marries an Anonymizing AutoEncoder (AAE) with Adaptive Differential Pulse-Code Modulation (ADPCM). The AAE first projects raw sensor windows into a latent space that retains activity-relevant features while suppressing identity cues. ADPCM then differentially encodes this latent stream, further masking residual identity information and shrinking the bitrate. Experiments on the MotionSense and PAMAP2 datasets show that C-AAE cuts user re-identification F1 scores by 10-15 percentage points relative to AAE alone, while keeping activity-recognition F1 within 5 percentage points of the unprotected baseline. ADPCM also reduces data volume by roughly 75 %, easing transmission and storage overheads. These results demonstrate that C-AAE offers a practical route to balancing privacy and utility in continuous, sensor-based activity recognition for healthcare.
-  </details>
-
 - **[Group Sequence Policy Optimization](https://arxiv.org/abs/2507.18071)**  `arXiv:2507.18071`  
   _Chujie Zheng, Shixuan Liu, Mingze Li, Xiong-Hui Chen, Bowen Yu, Chang Gao, et al._
   <details><summary>Abstract</summary>
@@ -1655,12 +1649,6 @@
   _Daniel Carlstrom Schad, Shrey Dixit, Janis Keck, Viktor Studenyak, Aleksandr Shpilevoi, Andrej Bicanski_
   <details><summary>Abstract</summary>
   We present VIBE, a two-stage Transformer that fuses multi-modal video, audio, and text features to predict fMRI activity. Representations from open-source models (Qwen2.5, BEATs, Whisper, SlowFast, V-JEPA) are merged by a modality-fusion transformer and temporally decoded by a prediction transformer with rotary embeddings. Trained on 65 hours of movie data from the CNeuroMod dataset and ensembled across 20 seeds, VIBE attains mean parcel-wise Pearson correlations of 32.25 on in-distribution Friends S07 and 21.25 on six out-of-distribution films. An earlier iteration of the same architecture obtained 0.3198 and 0.2096, respectively, winning Phase-1 and placing second overall in the Algonauts 2025 Challenge.
-  </details>
-
-- **[Clo-HDnn: A 4.66 TFLOPS/W and 3.78 TOPS/W Continual On-Device Learning Accelerator with Energy-efficient Hyperdimensional Computing via Progressive Search](https://arxiv.org/abs/2507.17953)**  `arXiv:2507.17953`  
-  _Chang Eun Song, Weihong Xu, Keming Fan, Soumil Jain, Gopabandhu Hota, Haichao Yang, et al._
-  <details><summary>Abstract</summary>
-  Clo-HDnn is an on-device learning (ODL) accelerator designed for emerging continual learning (CL) tasks. Clo-HDnn integrates hyperdimensional computing (HDC) along with low-cost Kronecker HD Encoder and weight clustering feature extraction (WCFE) to optimize accuracy and efficiency. Clo-HDnn adopts gradient-free CL to efficiently update and store the learned knowledge in the form of class hypervectors. Its dual-mode operation enables bypassing costly feature extraction for simpler datasets, while progressive search reduces complexity by up to 61% by encoding and comparing only partial query hypervectors. Achieving 4.66 TFLOPS/W (FE) and 3.78 TOPS/W (classifier), Clo-HDnn delivers 7.77x and 4.85x higher energy efficiency compared to SOTA ODL accelerators.
   </details>
 
 - **[Multimodal Fine-grained Reasoning for Post Quality Evaluation](https://arxiv.org/abs/2507.17934)**  `arXiv:2507.17934`  
