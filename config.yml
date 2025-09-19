@@ -39,6 +39,7 @@ topic:
     keywords:
       - VLA
       - Vision-Language-Action
+      - RL
     filters:
   Diffusion:
     keywords:
