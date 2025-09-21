@@ -12,13 +12,13 @@
 ## 🌟 Today's Highlights
 
 - 🔥 Hot Topic
+  - [Embodied_AI](hot_topic/Embodied_AI.md)
   - [LLM](hot_topic/LLM.md)
   - [Benchmark](hot_topic/Benchmark.md)
   - [Test-Time-Scaling](hot_topic/Test-Time-Scaling.md)
   - [Diffusion](hot_topic/Diffusion.md)
   - [MLLM](hot_topic/MLLM.md)
   - [3D_Reconstruction](hot_topic/3D_Reconstruction.md)
-  - [Embodied_AI](hot_topic/Embodied_AI.md)
   - [3D_Generation](hot_topic/3D_Generation.md)
 - 💫 Active Platform
   - [Huggingface](https://huggingface.co/papers)
