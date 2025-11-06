@@ -1,6 +1,6 @@
 # 🚀 Daily AI arXiv Digest
 
-[![Total Papers](https://img.shields.io/badge/paper_today-348+-red)]()
+[![Total Papers](https://img.shields.io/badge/paper_today-0+-red)]()
 [![Last Updated](https://img.shields.io/badge/dynamic/json?url=https://api.github.com/repos/tavish9/awesome-daily-AI-arxiv/commits/main&query=%24.commit.author.date&label=updated&color=orange)](https://github.com/Tavish9/awesome-daily-AI-arxiv/commits/main/)
 [![arXiv API](https://img.shields.io/badge/powered_by-arXiv_API-009688)](https://arxiv.org/help/api)
 [![License](https://img.shields.io/badge/license-CC_BY--SA_4.0-3989c9)](LICENSE)
@@ -13,13 +13,13 @@
 
 - 🔥 Hot Topic
   - [LLM](hot_topic/LLM.md)
-  - [Benchmark](hot_topic/Benchmark.md)
-  - [Test-Time-Scaling](hot_topic/Test-Time-Scaling.md)
   - [MLLM](hot_topic/MLLM.md)
+  - [Test-Time-Scaling](hot_topic/Test-Time-Scaling.md)
+  - [Embodied_AI](hot_topic/Embodied_AI.md)
   - [Diffusion](hot_topic/Diffusion.md)
   - [3D_Reconstruction](hot_topic/3D_Reconstruction.md)
-  - [Embodied_AI](hot_topic/Embodied_AI.md)
   - [3D_Generation](hot_topic/3D_Generation.md)
+  - [Benchmark](hot_topic/Benchmark.md)
 - 💫 Active Platform
   - [Huggingface](https://huggingface.co/papers)
   - [LlamaFactory](https://www.llamafactory.cn/daily-paper/)
@@ -32,12 +32,12 @@
 
 | Category                                                                                | Count |
 | --------------------------------------------------------------------------------------- | ----- |
-| [Artificial Intelligence 🧠](#artificial-intelligence-) | 45    |
-| [Computation and Language 💬](#computation-and-language-) | 54    |
-| [Computer Vision and Pattern Recognition 📸](#computer-vision-and-pattern-recognition-) | 101   |
-| [Machine Learning 📊](#machine-learning-) | 113   |
-| [Multiagent Systems 🌐](#multiagent-systems-) | 4     |
-| [Robotics 🤖](#robotics-) | 31    |
+| [Artificial Intelligence 🧠](#artificial-intelligence-) | 0     |
+| [Computation and Language 💬](#computation-and-language-) | 0     |
+| [Computer Vision and Pattern Recognition 📸](#computer-vision-and-pattern-recognition-) | 0     |
+| [Machine Learning 📊](#machine-learning-) | 0     |
+| [Multiagent Systems 🌐](#multiagent-systems-) | 0     |
+| [Robotics 🤖](#robotics-) | 0     |
 
 ### Artificial Intelligence 🧠
 
